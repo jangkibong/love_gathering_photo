@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/contents.css">
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/contents.js"></script>
+    <title>Love Gathering photo</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="intro">
+            <h1 class="logo">
+                <span>제41회</span>
+                사랑의모임
+            </h1>
+            <p class="catchphrase">
+                네가 나를 사랑하느냐 (요 21: 17)
+            </p>
+            <div class="">
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+            </div>
+        </div>
+        <a href="./html/step1_shoot_type.html" class="btn">START</a>
+    </div>
+    <script>
+        // 로컬 스토리지에서 모든 키-값 쌍을 가져오는 함수
+        function getAllLocalStorageItems() {
+            var items = {};
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                items[key] = localStorage.getItem(key);
+            }
+            return items;
+        }
+
+        // "current camera" 키를 제외하고 모든 다른 값을 삭제하는 함수
+        function removeLocalStorageItemsExceptCurrentCamera() {
+            var items = getAllLocalStorageItems();
+            for (var key in items) {
+                if (key !== "current camera") {
+                    localStorage.removeItem(key);
+                }
+            }
+        }
+
+        // "current camera" 키를 제외하고 모든 다른 값을 삭제
+        removeLocalStorageItemsExceptCurrentCamera();
+    </script>
+</body>
+</html>
