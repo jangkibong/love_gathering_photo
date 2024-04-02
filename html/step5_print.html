@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/contents.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/contents.js"></script>
+    <script src="../js/dom-to-image.min.js"></script>
+    <style>
+        .img_preview{
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            translate: 0 -50%;
+            background-color: rgba(100, 100, 200, 0.5);
+            /* width: calc(85vh * (4 / 6));
+            height: 85vh; */
+            z-index: 100;
+        }
+    </style>
+    <title>print</title>
+</head>
+<body>
+    <div class="wrap white" data-step="5">
+        <h1 class="logo">
+            <a href="../index.html">사랑의모임</a>
+        </h1>
+        <div class="picture_setting">
+            <div class="box_print" id="capture">
+                <div class="print_set">
+                    <h5 class="frame_logo"><span>제41회</span> 사랑의모임</h5>
+                    <ul class="left">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                    <h5 class="frame_logo second"><span>제41회</span> 사랑의모임</h5>
+                    <ul class="right">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </div>
+                <div class="print_set wide ">
+                    <h5 class="frame_logo"><span>제41회</span> 사랑의모임</h5>
+                    <ul class="left">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box_custom set_pirnt">
+                <h2>인쇄매수</h2>
+                <div class="box_btn set_count">
+                    <button type="button" class="btn_ic minus">-</button>
+                    <p>1</p>
+                    <button type="button" class="btn_ic plus">+</button>
+                </div>
+                
+                <div class="box_btn">
+                    <button type="button" class="btn print">인쇄시작</button>
+                    <button type="button" class="btn save hide">저장</button>
+                    <button type="button" class="btn hide">카카오톡으로 보내기</button>
+                </div>
+            </div>
+        </div>
+        <div class="box_btn top_right">
+            <a href="./step4_frame_type.html" class="btn_ic prev">다음</a>
+            <a href="../index.html" class="btn_ic home">처음으로</a>
+        </div>
+        <div class="img_preview"></div>
+    </div>
+    <script>
+        const btn_save = document.querySelector(".btn.save");
+
+        btn_save.addEventListener('click', function(){
+            var node = document.getElementById('capture');
+            var options = {
+                style:{
+                    margin : '0'
+                }
+            }
+
+            domtoimage.toPng(node, options)
+                .then(function (dataUrl) {
+                    // 이미지를 Blob으로 변환
+                    var blob = dataURItoBlob(dataUrl);
+                    // Blob을 URL로 변환
+                    var url = URL.createObjectURL(blob);
+                    // <a> 요소 생성
+                    var link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'captured_image.jpg'; // 파일명 지정
+                    // 클릭 이벤트 발생시켜 다운로드
+                    link.click();
+                    // URL 해제
+                    URL.revokeObjectURL(url);
+                })
+                .catch(function (error) {
+                    console.error('이미지 변환 실패:', error);
+                });
+        });
+
+        // 데이터 URL을 Blob으로 변환하는 함수
+        function dataURItoBlob(dataURI) {
+            var byteString = atob(dataURI.split(',')[1]);
+            var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+            var ab = new ArrayBuffer(byteString.length);
+            var ia = new Uint8Array(ab);
+            for (var i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+            return new Blob([ab], { type: mimeString });
+        }
+
+    </script>
+</body>
+</html>

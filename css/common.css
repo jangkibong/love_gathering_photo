@@ -1,0 +1,266 @@
+@charset "utf-8";
+
+/* font */
+@font-face {
+    font-family: 'GyeonggiTitleM';
+    src: url(../font/Title_Medium.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GyeonggiTitleL';
+    src: url(../font/Title_Light.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MaruBuri-Regular";
+    src: url(../font/MaruBuri-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 300;
+    src: url(../font/NanumSquareL.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 400;
+    src: url(../font/NanumSquareR.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 700;
+    src: url(../font/NanumSquareB.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 800;
+    src: url(../font/NanumSquareEB.ttf) format('truetype');
+}
+/* font - end*/
+
+/* animation */
+@keyframes spin_hoop {
+    0%{
+        transform: rotate(0deg) scale(100%);
+    }
+    50%{
+        transform: rotate(180deg) scale(90%);
+    }
+    100%{
+        transform: rotate(360deg) scale(100%);
+    }
+}
+/* animation - end */
+
+@page {
+    size: 4in 6in; /* A0 ~ A5, Legal, Letter, Tabloid, custom(가로 세로)**(단위 mm, cm, in(인치) 등) */
+    bleed: 5mm; /* 문서의 프린트 영역을 벗어나는 이미지나 색상이 나타나는 부분을 설정 */
+}
+
+/* var */
+:root{
+    --color-prime: #e44e73;
+    --color-prime-light: #e77e8d;
+    --color-prime-pale: #ffdcdc;
+    --color-prime-deep: #9e4653;
+    --color-point: #e44e73;
+    --color-base: #606060;
+    --color-base-light: #e1e1e1;
+    
+    --color-logo-light: #fff;
+    --color-logo-dark: #e44e73;
+    
+    --frame-color-1: #fff;
+    --frame-color-2: #adcbe1;
+    --frame-color-3: #b3b3b3;
+    --frame-color-4: #99382a;
+    --frame-color-5: #000000;
+    --frame-color-6: #32395a;
+    --frame-color-7: #ecc0c1;
+    --frame-color-8: #6f6a48;
+
+    --bg-shoot-type-front: #7f7f7f;
+    --bg-shoot-type-back: #666;
+
+    --margin-base: 12px;
+
+    --font-logo: "GyeonggiTitleM";
+    --font-catchphrase: "GyeonggiTitleL";
+    --size-btn: 7vh;
+}
+/* var - end */
+
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+a, a:visited, a:hover, a:active{
+    color: var(--color-base);
+    text-decoration: none;
+}
+button{
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+	content: none;
+}
+table {
+    border-collapse: collapse;
+	border-spacing: 0;
+}
+/* reset - end */
+
+/* common */
+.hide{display: none !important;}
+.wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: var(--color-base);
+    font-family: "NanumSquare";
+    /* background: var(--color-prime); */
+}
+/* .wrap.white{
+    background: #fff;
+} */
+
+.wrap .logo{font-family: var(--font-logo);}
+.wrap .logo a{display: block;}
+.wrap .catchphrase{font-family: var(--font-catchphrase);}
+
+
+.wrap .logo{
+    position: fixed;
+    left: 40px;
+    top: 20px;
+}
+.wrap .logo a{
+    color: var(--color-logo-dark);
+    font-size: 60px;
+}
+.wrap.white .logo a{
+    color: var(--color-logo-dark);
+}
+.wrap h2{
+    /* color: #fff; */
+    margin: 68px 0;
+    font-weight: 600;
+    font-size: 68px;
+}
+.wrap.white h2{
+    color: var(--color-base);
+    font-size: 66px;
+}
+
+.wrap h3{font-weight: 800; font-size: 40px;}
+.wrap h4{font-weight: 800; font-size: 30px;}
+.wrap p{font-size: 24px;}
+
+.wrap .btn{
+    font-size: calc(var(--size-btn) / 2.35);
+    padding : 0 calc(var(--size-btn) / 2);
+    color: var(--color-base);
+    line-height: var(--size-btn);
+    font-weight: 800;
+    border: 2px solid var(--color-prime);
+    background-color: #fff;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+.wrap .btn_ic{
+    display: block;
+    overflow: hidden;
+    width: var(--size-btn);
+    height: var(--size-btn);
+    text-indent: -9999px;
+    background-color: #fff;
+    background-image: url(../images/icon.png);
+    background-size: cover;
+    background-position: 0 center;
+    border: 2px solid var(--color-prime);
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+.wrap .btn_ic.prev{
+    background-position: 0 center;
+}
+.wrap .btn_ic.next{
+    background-position: 0 center;
+    rotate: 180deg;
+}
+.wrap .btn_ic.home{
+    background-position-x: right;
+}
+.wrap .btn_ic.minus{
+    background-position-x: calc(33.33% * 1);
+}
+.wrap .btn_ic.plus{
+    background-position-x: calc(33.33% * 2);
+}
+.wrap .intro + .btn{
+    position: absolute; bottom: 86px;
+    z-index: 2;
+}
+
+.wrap :is(.btn, .btn_ic)[disabled]{
+    background-color: var(--color-base-light);
+    /* cursor: not-allowed; */
+}
+
+.wrap .box_btn{display: flex;}
+.wrap .box_btn.vertical{flex-direction: column;}
+.wrap .box_btn.top_right{
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+.wrap .box_btn :is(a, p, input, button):not(:first-child){margin-left: var(--margin-base);}
+.wrap .box_btn.vertical :is(a, input, button):not(:first-child){margin: var(--margin-base) 0 0 0; padding: 22px 0; line-height: 1.2;}
+/* common - end */
