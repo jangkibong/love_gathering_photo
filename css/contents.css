@@ -366,6 +366,12 @@
     width: 100%;
     margin: var(--margin_picture_setting);
 }
+.wrap .picture_setting .print_box{
+    /* 프린트 여백지정용 */
+    margin: var(--margin_box_print);
+    background-color: red;
+    padding: 3.214vh 1.9236vh 2.6544vh 2.56vh;
+}
 .wrap .picture_setting .box_print{
     display: flex;
     position: relative;

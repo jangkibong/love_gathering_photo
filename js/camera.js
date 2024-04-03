@@ -121,7 +121,7 @@ $(function(){
                     }
 
                     // Canvas의 이미지를 Data URL로 변환하여 저장
-                    const imgData = canvas.toDataURL('image/jpeg', 0.7); // 0.7은 JPEG 압축 품질을 나타내며 0에서 1 사이의 값입니다.
+                    const imgData = canvas.toDataURL('image/jpeg', 0.9); // 1은 JPEG 압축 품질을 나타내며 0에서 1 사이의 값입니다.
                     
                     // 이미지를 로컬 스토리지에 저장 
                     localStorage.setItem("photo_" + photoCount, imgData);
