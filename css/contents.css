@@ -690,11 +690,11 @@
 .wrap .box_custom.frame_set .frame_chips li button[data-frame="color_1"]{background-color: var(--frame-color-1);}
 .wrap .box_custom.frame_set .frame_chips li button[data-frame="color_2"]{background-color: var(--frame-color-2);}
 .wrap .box_custom.frame_set .frame_chips li button[data-frame="color_3"]{background-color: var(--frame-color-3);}
-.wrap .box_custom.frame_set .frame_chips li button[data-frame="color_4"]{background-color: var(--frame-color-4); color: #fff;}
-.wrap .box_custom.frame_set .frame_chips li button[data-frame="color_5"]{background-color: var(--frame-color-5); color: #fff;}
-.wrap .box_custom.frame_set .frame_chips li button[data-frame="color_6"]{background-color: var(--frame-color-6); color: #fff;}
+.wrap .box_custom.frame_set .frame_chips li button[data-frame="color_4"]{background-color: var(--frame-color-4);}
+.wrap .box_custom.frame_set .frame_chips li button[data-frame="color_5"]{background-color: var(--frame-color-5);}
+.wrap .box_custom.frame_set .frame_chips li button[data-frame="color_6"]{background-color: var(--frame-color-6);}
 .wrap .box_custom.frame_set .frame_chips li button[data-frame="color_7"]{background-color: var(--frame-color-7);}
-.wrap .box_custom.frame_set .frame_chips li button[data-frame="color_8"]{background-color: var(--frame-color-8); color: #fff;}
+.wrap .box_custom.frame_set .frame_chips li button[data-frame="color_8"]{background-color: var(--frame-color-8);}
 /* step_4 frame type - end */
 
 /* step_5 print - start */
