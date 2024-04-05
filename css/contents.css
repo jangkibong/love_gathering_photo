@@ -376,11 +376,12 @@
     margin: var(--margin_box_print);
     padding: 2.7vh 1.75vh 2.28vh 2.35vh;
     box-sizing: content-box;
-    background-image: url(../images/photo_frame/Artboard54_1.png);
+    background-image: url(../images/printing_frame/printing_frame_color_1.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 0 0;
     /* background-color: red; */
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
 }
 .wrap .picture_setting .box_print{
     display: flex;
