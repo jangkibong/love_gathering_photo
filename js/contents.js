@@ -13,6 +13,7 @@ $(function(){
     const frame_chip_spacial = $(".frame_chips.frame_spacial");
     const btn_frame_chip = $(".frame_chips button");
     const box_print = $(".box_print");
+    const wrap_box_print = $(".wrap_box_print");
     const print_left_item = $(".box_print .print_set:not(.wide) .left li");
     const print_right_item = $(".box_print .print_set:not(.wide) .right li");
     const print_wide_item = $(".box_print .wide .left li");
@@ -73,13 +74,14 @@ $(function(){
     /* step4 화면에서 선택한 프레임 종류 적용*/
     if($(".wrap").attr('data-step') >= 4){
         box_print.addClass(localStorage.getItem("frame color"));
+        wrap_box_print.addClass(localStorage.getItem("frame color"));
     }
 
     /* 촬영 타입 선택 */
     shoot_type_choose.on('click', function(){
         shoot_type_box.removeClass('on'); // 선택표시 취소
         $(this).parents(".type_item").addClass('on'); //내가 선택한 촬영타입에 선택 표시
-        
+        $(".btn_ic.next").removeClass("hide");
         // localStorage에 촬영 타입 저장
         window.localStorage.setItem("shoot type", $(this).attr('data-shoot-type'));
         window.localStorage.setItem("cut count", $(this).attr('data-cut'));
@@ -125,8 +127,9 @@ $(function(){
 
     /* 프레임 칩 버튼 */
     btn_frame_chip.on('click', function(){
-        window.localStorage.setItem("frame color", $(this).attr("data-frame"));
+        window.localStorage.setItem("frame color", $(this).attr("data-frame"));``
         box_print.removeClass().addClass("box_print " + window.localStorage.getItem("frame color"));
+        wrap_box_print.removeClass().addClass("wrap_box_print " + window.localStorage.getItem("frame color"));
     });
     
     /* 인쇄매수 버튼 */

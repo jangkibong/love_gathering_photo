@@ -1,5 +1,5 @@
 :root{
-    --ratio_paper: (4.01 / 6); /* 사용하는 용지 및 프린터에 따른 적정값 사용 */
+    --ratio_paper: (4.005 / 6); /* 사용하는 용지 및 프린터에 따른 적정값 사용 */
     --ratio_4X3: 3.185;
     --width_ratio_4x3 : (4 / var(--ratio_4X3));
     --height_ratio_4x3 : (var(--ratio_4X3) / 4);
@@ -373,13 +373,13 @@
     /* 캐논 cp1500 포토프린터 프린트 여백지정용 */
     margin: var(--margin_box_print);
     margin: var(--margin_box_print);
-    padding: 2.2vh 1.95vh 3.78vh 2.15vh;
+    padding: 2.5vh 1.85vh 3.48vh 2.25vh;
     box-sizing: content-box;
-    background-image: url(../images/printing_frame/printing_frame_color_1.png);
+    /* background-image: url(../images/printing_frame/printing_frame_color_1.png); */
     background-repeat: no-repeat;
     background-size: contain;
     background-position: -0.3vh -0.4vh;
-    /* background-color: red; */
+    background-color: #fff;
     box-shadow: 0vh 0vh 2.0vh rgba(0,0,0,0.3);
 }
 
@@ -389,13 +389,16 @@
     width: calc(var(--box_print_height) * var(--ratio_paper));
     height: var(--box_print_height);
     /* margin: var(--margin_box_print); */
-    background-color: var(--bg-shoot-type-front);
+    /* background-color: var(--bg-shoot-type-front); */
+    background-image: url(../images/sharing_frame/sharing_frame_color_1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
     box-sizing: border-box;
-    box-shadow: 0vh 0vh 2.0vh rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0vh 0vh 2.0vh rgba(0, 0, 0, 0.5); */
     flex: none;
-    /* 추후조정 필요 속성 */
-    background: none !important;
-    box-shadow: none !important;
+}
+.wrap .picture_setting.wide .box_print{
+    background-image: url(../images/sharing_frame/sharing_wide_frame_color_1.png);
 }
 .wrap .picture_setting .box_print .print_set{
     display: flex;
@@ -403,14 +406,33 @@
     flex: 1;
     height: 75.7vh;
 }
-.wrap .picture_setting .box_print.color_1{background-color: var(--frame-color-1);}
-.wrap .picture_setting .box_print.color_2{background-color: var(--frame-color-2);}
-.wrap .picture_setting .box_print.color_3{background-color: var(--frame-color-3);}
-.wrap .picture_setting .box_print.color_4{background-color: var(--frame-color-4);}
-.wrap .picture_setting .box_print.color_5{background-color: var(--frame-color-5);}
-.wrap .picture_setting .box_print.color_6{background-color: var(--frame-color-6);}
-.wrap .picture_setting .box_print.color_7{background-color: var(--frame-color-7);}
-.wrap .picture_setting .box_print.color_8{background-color: var(--frame-color-8);}
+.wrap .picture_setting .wrap_box_print.color_1{background-color: var(--frame-color-1);}
+.wrap .picture_setting .wrap_box_print.color_2{background-color: var(--frame-color-2);}
+.wrap .picture_setting .wrap_box_print.color_3{background-color: var(--frame-color-3);}
+.wrap .picture_setting .wrap_box_print.color_4{background-color: var(--frame-color-4);}
+.wrap .picture_setting .wrap_box_print.color_5{background-color: var(--frame-color-5);}
+.wrap .picture_setting .wrap_box_print.color_6{background-color: var(--frame-color-6);}
+.wrap .picture_setting .wrap_box_print.color_7{background-color: var(--frame-color-7);}
+.wrap .picture_setting .wrap_box_print.color_8{background-color: var(--frame-color-8);}
+
+.wrap .picture_setting .box_print.color_1{background-image: url(../images/sharing_frame/sharing_frame_color_1.png);}
+.wrap .picture_setting .box_print.color_2{background-image: url(../images/sharing_frame/sharing_frame_color_2.png);}
+.wrap .picture_setting .box_print.color_3{background-image: url(../images/sharing_frame/sharing_frame_color_3.png);}
+.wrap .picture_setting .box_print.color_4{background-image: url(../images/sharing_frame/sharing_frame_color_4.png);}
+.wrap .picture_setting .box_print.color_5{background-image: url(../images/sharing_frame/sharing_frame_flower_1.png);}
+.wrap .picture_setting .box_print.color_6{background-image: url(../images/sharing_frame/sharing_frame_flower_2.png);}
+.wrap .picture_setting .box_print.color_7{background-image: url(../images/sharing_frame/sharing_frame_flower_3.png);}
+.wrap .picture_setting .box_print.color_8{background-image: url(../images/sharing_frame/sharing_frame_flower_4.png);}
+
+.wrap .picture_setting.wide .box_print.color_1{background-image: url(../images/sharing_frame/sharing_wide_frame_color_1.png);}
+.wrap .picture_setting.wide .box_print.color_2{background-image: url(../images/sharing_frame/sharing_wide_frame_color_2.png);}
+.wrap .picture_setting.wide .box_print.color_3{background-image: url(../images/sharing_frame/sharing_wide_frame_color_3.png);}
+.wrap .picture_setting.wide .box_print.color_4{background-image: url(../images/sharing_frame/sharing_wide_frame_color_4.png);}
+.wrap .picture_setting.wide .box_print.color_5{background-image: url(../images/sharing_frame/sharing_wide_frame_flower_1.png);}
+.wrap .picture_setting.wide .box_print.color_6{background-image: url(../images/sharing_frame/sharing_wide_frame_flower_2.png);}
+.wrap .picture_setting.wide .box_print.color_7{background-image: url(../images/sharing_frame/sharing_wide_frame_flower_3.png);}
+.wrap .picture_setting.wide .box_print.color_8{background-image: url(../images/sharing_frame/sharing_wide_frame_flower_4.png);}
+
 .wrap .picture_setting.wide .box_print .print_set:not(.wide){
     display: none;
 }

@@ -140,7 +140,7 @@ $(function(){
                         canvas.style.display = 'block';
                     }
                 }
-            },1000);
+            },800);
             
         }
     });
