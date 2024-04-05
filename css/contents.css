@@ -1,10 +1,14 @@
 :root{
     --ratio_paper: (4.01 / 6); /* 사용하는 용지 및 프린터에 따른 적정값 사용 */
-    --ratio_4X3: 3.1;
+    --ratio_4X3: 3.185;
     --width_ratio_4x3 : (4 / var(--ratio_4X3));
     --height_ratio_4x3 : (var(--ratio_4X3) / 4);
-    --width_ratio_3x4 : (3 / 4);
-    --height_ratio_3x4 : (4 / 3);
+    --width_ratio_3x4 : (3 / 4.25);
+    --height_ratio_3x4 : (4.25 / 3);
+    --width_wide_ratio_3x4 : (3 / 4.33);
+    --height_wide_ratio_3x4 : (4.33 / 3);
+    --width_wide_ratio_4x3: (4.08 / 3);
+    --height_wide_ratio_4x3: (3 / 4.08);
     --margin_print_frame : 2vh;
     --box_rounding: 0.5vh;
     --box_print_height : 85vh;
@@ -370,9 +374,9 @@
     /* 캐논 cp1500 포토프린터 프린트 여백지정용 */
     margin: var(--margin_box_print);
     margin: var(--margin_box_print);
-    padding: 2.7vh 1.65vh 2.08vh 2.25vh;
+    padding: 2.7vh 1.75vh 2.28vh 2.35vh;
     box-sizing: content-box;
-    background-image: url(../images/photo_frame/frame_basic_flower_1.png);
+    background-image: url(../images/photo_frame/Artboard54_1.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 0 0;
@@ -435,7 +439,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 0 var(--margin_print_frame) 2.4vh;
+    margin: 0 var(--margin_print_frame) 2.2vh;
     flex: 1;
 }
 .wrap .picture_setting .box_print .print_set .right::before{
@@ -455,7 +459,7 @@
 }
 .wrap .picture_setting .box_print .print_set li{
     overflow: hidden;
-    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_4x3) - 4vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_4x3) - 4.6vh);
     width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4.6vh);
     text-indent: -9999px;
     background-color: #e4e4e4;
@@ -472,8 +476,8 @@
     top: 3.5vh;
 }
 .wrap .picture_setting.ratio_1x1 .box_print .print_set li{
-    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
-    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4.7vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4.7vh);
 }
 .wrap .picture_setting.ratio_1x1:not(.wide) .box_print .print_set li:nth-child(4){
     display: none;
@@ -493,13 +497,13 @@
     left: 75%;
 }
 
-.wrap .picture_setting.ratio_3x4 .box_print .print_set .left{
+/* .wrap .picture_setting.ratio_3x4 .box_print .print_set .left{
     margin-bottom: 4vh;
-}
+} */
 .wrap .picture_setting.ratio_3x4 .box_print .print_set li{
-    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_3x4) - 4vh);
-    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4vh);
-    margin-top: 1.5vh;
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_3x4) - 4.7vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4.7vh);
+    /* margin-top: 1.5vh; */
 }
 .wrap .picture_setting.ratio_3x4:not(.wide) .box_print .print_set li:nth-child(n + 3){
     display: none;
@@ -508,12 +512,14 @@
 /* wide type */
 .wrap .picture_setting .box_print .print_set.wide .left{
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    align-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 3vh;
 }
 .wrap .picture_setting .box_print .print_set.wide{
     display: none;
+    height: 78.59vh;
 }
 .wrap .picture_setting.wide .box_print .print_set.wide{
     display: flex;
@@ -526,7 +532,7 @@
 }
 .wrap .picture_setting:not(.ratio_3x4) .box_print .print_set.wide .left li:nth-child(even){
     margin-right: 0;
-    translate: 0 0.8vh;
+    /* translate: 0 0.8vh; */
 }
 .wrap .picture_setting:not(.ratio_3x4) .box_print .print_set.wide .left li:nth-child(n+3):nth-child(-n+4){
     transform: translateX(-0.5vh);
@@ -542,17 +548,44 @@
     display: inline;
 }
 .wrap .picture_setting.ratio_3x4 .box_print .print_set.wide .left{
-    margin-bottom: 3.6vh;
+    margin: 0 3vh 2.5vh;
 }
 .wrap .picture_setting.ratio_3x4 .box_print .print_set.wide .left li{
-    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_3x4) - 2.5vh);
-    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 2.5vh);
-    margin: 1vh 1vh 0 0;
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_wide_ratio_3x4) - 3.4vh);
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 3.4vh);
+    /* margin: 1vh 1vh 0 0; */
+    margin: unset;
 }
 .wrap .picture_setting.ratio_3x4 .box_print .print_set.wide .left li:nth-child(even){
     margin-right: 0;
 }
 .wrap .picture_setting.ratio_3x4 .box_print .print_set.wide .left li:nth-child(n+5):nth-child(-n+6){
+    display: none;
+}
+
+    /* wide type - ratio 4x3 */
+.wrap .picture_setting.ratio_4x3 .box_print .print_set.wide h5.frame_logo{
+    top: 5vh;
+    right: 0;
+    font-size: 2.8vh;
+    margin-right: var(--margin_print_frame);
+}
+.wrap .picture_setting.ratio_4x3 .box_print .print_set.wide h5.frame_logo span{
+    display: inline;
+}
+.wrap .picture_setting.ratio_4x3 .box_print .print_set.wide .left{
+    margin: 0 3vh 2.5vh;
+}
+.wrap .picture_setting.ratio_4x3 .box_print .print_set.wide .left li{
+    height: calc(((var(--box_print_height) * var(--ratio_paper) / 1) - 6vh) * var(--height_wide_ratio_4x3));
+    width: calc((var(--box_print_height) * var(--ratio_paper) / 1) - 6vh);
+    /* margin: 1vh 1vh 0 0; */
+    margin: unset;
+}
+.wrap .picture_setting.ratio_4x3 .box_print .print_set.wide .left li:nth-child(even){
+    margin-right: 0;
+}
+.wrap .picture_setting.ratio_4x3 .box_print .print_set.wide .left li:nth-child(n+3):nth-child(-n+6){
     display: none;
 }
 
@@ -586,12 +619,12 @@
 }
     /* preview ratio 4x3 */
 .wrap .picture_setting.ratio_3x4 .picture_preview .preview_set li{
-    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * (4 / 3) - 2vh);
+    height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_3x4) - 2vh);
     width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 2vh);
 }
 .wrap .picture_setting.wide.ratio_3x4 .picture_preview .preview_set li{
     height: calc(var(--box_print_height) / 3 - (2vh / 3));
-    width: calc((var(--box_print_height) / 3 * var(--width_ratio_3x4) - (2vh / 3)));
+    width: calc((var(--box_print_height) / 3 * var(--width_wide_ratio_3x4) - (2vh / 3)));
 }
 
     /* preview ratio 1x1 */

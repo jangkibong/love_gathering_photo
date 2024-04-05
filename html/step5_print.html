@@ -24,12 +24,12 @@
 </head>
 <body>
     <div class="wrap white" data-step="5">
-        <h1 class="logo">
+        <h1 class="logo hide">
             <a href="../index.html">사랑의모임</a>
         </h1>
         <div class="picture_setting">
-            <div class="wrap_box_print" id="capture">
-                <div class="box_print" id="">
+            <div class="wrap_box_print" id="capture_printing">
+                <div class="box_print" id="capture_sharing">
                     <div class="print_set">
                         <ul class="left">
                             <li>1</li>
@@ -66,8 +66,8 @@
                 
                 <div class="box_btn">
                     <button type="button" class="btn print hide">인쇄시작</button>
-                    <button type="button" class="btn save">저장(인쇄용)</button>
-                    <button type="button" class="btn ">저장(공유용)</button>
+                    <button type="button" class="btn save_printing">저장(인쇄용)</button>
+                    <button type="button" class="btn save_sharing">저장(공유용)</button>
                 </div>
             </div>
         </div>
@@ -78,10 +78,11 @@
         <div class="img_preview"></div>
     </div>
     <script>
-        const btn_save = document.querySelector(".btn.save");
+        const btn_save_printing = document.querySelector(".btn.save_printing");
+        const btn_save_sharing = document.querySelector(".btn.save_sharing");
 
-        btn_save.addEventListener('click', function(){
-            var node = document.getElementById('capture');
+        btn_save_printing.addEventListener('click', function(){
+            var node = document.getElementById('capture_printing');
             var options = {
                 style:{
                     margin : '0'
@@ -97,7 +98,35 @@
                     // <a> 요소 생성
                     var link = document.createElement('a');
                     link.href = url;
-                    link.download = 'captured_image.jpg'; // 파일명 지정
+                    link.download = '인쇄용_image.jpg'; // 파일명 지정
+                    // 클릭 이벤트 발생시켜 다운로드
+                    link.click();
+                    // URL 해제
+                    URL.revokeObjectURL(url);
+                })
+                .catch(function (error) {
+                    console.error('이미지 변환 실패:', error);
+                });
+        });
+
+        btn_save_sharing.addEventListener('click', function(){
+            var node = document.getElementById('capture_sharing');
+            var options = {
+                style:{
+                    margin : '0'
+                }
+            }
+
+            domtoimage.toPng(node, options)
+                .then(function (dataUrl) {
+                    // 이미지를 Blob으로 변환
+                    var blob = dataURItoBlob(dataUrl);
+                    // Blob을 URL로 변환
+                    var url = URL.createObjectURL(blob);
+                    // <a> 요소 생성
+                    var link = document.createElement('a');
+                    link.href = url;
+                    link.download = '공유용_image.jpg'; // 파일명 지정
                     // 클릭 이벤트 발생시켜 다운로드
                     link.click();
                     // URL 해제
