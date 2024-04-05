@@ -12,7 +12,7 @@
     --margin_print_frame : 2vh;
     --box_rounding: 0.5vh;
     --box_print_height : 85vh;
-    --margin_picture_setting: auto 0 40px;
+    --margin_picture_setting: auto 0 4.0vh;
     --margin_box_print:0 auto 0 15%;
 }
 @media print {
@@ -24,15 +24,15 @@
     h1.logo, .box_custom, .box_btn.top_right{display: none;}
 }
 /* intro */
-.intro{position: relative; z-index: 2; top: -20px;}
+.intro{position: relative; z-index: 2; top: -2vh;}
 .intro::before,
 .intro::after {
-    content:"";
-    display: block;
+    /* content:"";
+    display: block; */
     position: fixed;
     left: 50%;
     width: 95vw;
-    height: 3px;
+    height: 0.3vh;
     background-color: #fff;
     transform: translateX(-50%);
     z-index: 2;
@@ -46,8 +46,8 @@
     z-index: -1;
 }
 .intro .circle:nth-child(1){
-    width: 546px;
-    height: 546px;
+    width: 54.6vh;
+    height: 54.6vh;
     top: 50%;
     left: 50%;
     background-color: var(--color-prime-pale);
@@ -58,7 +58,7 @@
 .intro .circle:nth-child(3),
 .intro .circle:nth-child(4),
 .intro .circle:nth-child(5){
-    border: 2px solid var(--color-prime-pale);
+    border: 0.4vh solid var(--color-prime-pale);
     transform-origin: 45%;
     animation: spin_hoop 5s infinite linear
 }
@@ -72,58 +72,58 @@
 }
 
 .intro .circle:nth-child(2){
-    top: -280px;
-    left: -174px;
-    width: 582px; height: 582px;
+    top: -28vh;
+    left: -17.4vh;
+    width: 58.2vh; height: 58.2vh;
     animation-duration: 10s;
 }
 .intro .circle:nth-child(3){
-    top: -264px;
-    right: -36px;
-    width: 270px; height: 270px;
+    top: -26.4vh;
+    right: -3.6vh;
+    width: 27.0vh; height: 27.0vh;
     animation-duration: 4s;
     animation-direction: reverse;
 }
 .intro .circle:nth-child(4){
-    top: 232px;
-    left: 22px;
-    width: 143px; height: 143px;
+    top: 23.2vh;
+    left: 2.2vh;
+    width: 14.3vh; height: 14.3vh;
     animation-duration: 8s;
 }
 .intro .circle:nth-child(5){
-    bottom: -300px;
-    right: -190px;
-    width: 582px; height: 582px;
+    bottom: -30.0vh;
+    right: -19.0vh;
+    width: 58.2vh; height: 58.2vh;
     animation-duration: 15s;
     animation-direction: reverse;
 }
 .intro .circle:nth-child(6){
-    top: 11px;
-    left: -127px;
-    width: 24px;
-    height: 24px;
+    top: 1.1vh;
+    left: -12.7vh;
+    width: 2.4vh;
+    height: 2.4vh;
     animation-duration: 4s;
 }
 .intro .circle:nth-child(7){
-    top: -202px;
-    right: 168px;
-    width: 15px;
-    height: 15px;
+    top: -20.2vh;
+    right: 16.8vh;
+    width: 1.5vh;
+    height: 1.5vh;
     animation-duration: 8s;
 }
 .intro .circle:nth-child(8){
-    top: 350px;
-    left: 74px;
-    width: 15px;
-    height: 15px;
+    top: 35.0vh;
+    left: 7.4vh;
+    width: 1.5vh;
+    height: 1.5vh;
     animation-duration: 15s;
     animation-direction: reverse;
 }
 .intro .circle:nth-child(9){
-    top: 152px;
-    right: -60px;
-    width: 38px;
-    height: 38px;
+    top: 15.2vh;
+    right: -6.0vh;
+    width: 3.8vh;
+    height: 3.8vh;
     animation-duration: 10s;
 }
 
@@ -132,7 +132,7 @@
     position: static;
     color: var(--color-prime);
     font-weight: 400;
-    font-size: 180px;
+    font-size: 18.0vh;
     text-align: center;
 }
 .wrap .intro .logo span{
@@ -141,9 +141,9 @@
 }
 .intro .catchphrase{
     /* color: var(--color-prime-light); */
-    font-size: 52px;
+    font-size: 5.2vh;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 2.0vh;
 }
 /* intro - end */
 
@@ -152,9 +152,9 @@
     display: flex;
     width: 96%;
     height: 69%;
-    padding: 56px 0;
+    padding: 5vh 0 7vh;
     background-color: var(--color-prime-pale);
-    border-radius: 28px;
+    border-radius: 2.8vh;
     box-sizing: border-box;
 }
 .wrap .container .shoot_type{
@@ -171,18 +171,17 @@
     font-weight: 800;
 }
 .wrap .container .shoot_type .tit h3{
-    font-size: 40px;
+    font-size: 4vh;
 }
 .wrap .container .shoot_type .tit p{
-    font-size: 24px;
-
+    font-size: 2.4vh;
 }
 .wrap .container .shoot_type .type_list{
     display: flex;
     justify-content: space-around;
     position: relative;
     height: 78%;
-    padding: 0 56px;
+    padding: 0 5.6vh;
 }
 
 .wrap .container .shoot_type:not(:first-child) .type_list::before{
@@ -191,7 +190,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 1px;
+    width: 0.2vh;
     height: 100%;
     background-color: #fff;
 }
@@ -208,19 +207,19 @@
 }
 .wrap .container .shoot_type .type_list .type_item h4{
     position: relative;
-    font-size: 30px;
+    font-size: 3vh;
     font-weight: 800;
 }
 .wrap .container .shoot_type .type_list .type_item.on h4::after{
     content: "";
     display: block;
     position: absolute;
-    right: -25px;
-    top: -10px;
-    width: 15px;
-    height: 10px;
-    border: 4px solid var(--color-point);
-    border-width: 0 0 4px 4px;
+    right: -2.1vh;
+    top: -0.9vh;
+    width: 1.5vh;
+    height: 1vh;
+    border: 0.4vh solid var(--color-point);
+    border-width: 0 0 0.4vh 0.4vh;
     transform: rotate(-45deg);
 }
 .wrap .container .shoot_type .type_list .type_item .photo_sample{
@@ -236,7 +235,7 @@
     background-color: var(--bg-shoot-type-front);
     translate: -70% -50%;
     rotate: -5deg;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0vh 0.3vh 0.8vh;
     z-index: 1;
 }
 .wrap .container .shoot_type .type_list .type_item .photo_sample img:last-child{
@@ -260,8 +259,8 @@
 
 /* step2_shooting - start */
 .wrap.shooting .logo{
-    left: -240px;
-    top: 25px;
+    left: -20vh;
+    top: 2.5vh;
     rotate: -90deg;
     translate: 0 0;
     transform-origin: 100% 0;
@@ -273,22 +272,22 @@
 .wrap .shootihg_box .camera{
     overflow: hidden;
     position: relative;
-    width: calc((100vh - 40px) * var(--width_ratio_4x3));
-    height: calc(100vh - 40px);
+    width: calc((100vh - 4.0vh) * var(--width_ratio_4x3));
+    height: calc(100vh - 4.0vh);
     text-align: center;
     background-color: #dbdbdb;
 }
 .wrap .shootihg_box.ratio_4x3 .camera{
-    width: calc((100vh - 40px) * var(--width_ratio_4x3));
-    height: calc(100vh - 40px);
+    width: calc((100vh - 4.0vh) * var(--width_ratio_4x3));
+    height: calc(100vh - 4.0vh);
 }
 .wrap .shootihg_box.ratio_1x1 .camera{
-    width: calc((100vh - 40px) * 1);
-    height: calc(100vh - 40px);
+    width: calc((100vh - 4.0vh) * 1);
+    height: calc(100vh - 4.0vh);
 }
 .wrap .shootihg_box.ratio_3x4 .camera{
-    width: calc((100vh - 40px) * var(--width_ratio_3x4));
-    height: calc(100vh - 40px);
+    width: calc((100vh - 4.0vh) * var(--width_ratio_3x4));
+    height: calc(100vh - 4.0vh);
 }
 
 .wrap .shootihg_box .camera #video{
@@ -314,9 +313,9 @@
     width: 100%;
     color: #fff;
     font-weight: 800;
-    line-height: calc(100vh - 40px);
-    font-size: 300px;
-    text-shadow: 0px 0px 30px #000;
+    line-height: calc(100vh - 4.0vh);
+    font-size: 30vh;
+    text-shadow: 0vh 0vh 3.0vh #000;
     opacity: 0.6;
 }
 .wrap .shootihg_box .camera .box_btn{
@@ -345,7 +344,7 @@
 }
 .wrap .shootihg_box .picture li{
     overflow: hidden;
-    width: calc((100vh - 40px - var(--margin-base)) / 8 * 1.333);
+    width: calc((100vh - 4.0vh - var(--margin-base)) / 8 * 1.333);
     height: calc();
     text-align: center;
     background-color: #dbdbdb;
@@ -374,15 +373,16 @@
     /* 캐논 cp1500 포토프린터 프린트 여백지정용 */
     margin: var(--margin_box_print);
     margin: var(--margin_box_print);
-    padding: 2.7vh 1.75vh 2.28vh 2.35vh;
+    padding: 2.2vh 1.95vh 3.78vh 2.15vh;
     box-sizing: content-box;
     background-image: url(../images/printing_frame/printing_frame_color_1.png);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: 0 0;
+    background-position: -0.3vh -0.4vh;
     /* background-color: red; */
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+    box-shadow: 0vh 0vh 2.0vh rgba(0,0,0,0.3);
 }
+
 .wrap .picture_setting .box_print{
     display: flex;
     position: relative;
@@ -391,7 +391,7 @@
     /* margin: var(--margin_box_print); */
     background-color: var(--bg-shoot-type-front);
     box-sizing: border-box;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0vh 0vh 2.0vh rgba(0, 0, 0, 0.5);
     flex: none;
     /* 추후조정 필요 속성 */
     background: none !important;
@@ -444,12 +444,12 @@
     flex: 1;
 }
 .wrap .picture_setting .box_print .print_set .right::before{
-    content: "";
-    display: block;
+    /* content: ""; */
+    /* display: block; */
     position: absolute;
     top: 0;
     left: 50%;
-    width: 1px;
+    width: 0.1vh;
     height: var(--box_print_height);
     background-color: #fff;
     opacity: 0.4;
@@ -462,7 +462,7 @@
     overflow: hidden;
     height: calc((var(--box_print_height) * var(--ratio_paper) / 2) * var(--height_ratio_4x3) - 4.6vh);
     width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 4.6vh);
-    text-indent: -9999px;
+    text-indent: -999vh;
     background-color: #e4e4e4;
     border-radius: var(--box_rounding);
     background-repeat: no-repeat;
@@ -610,7 +610,7 @@
     width: calc((var(--box_print_height) * var(--ratio_paper) / 2) - 2vh);
     margin-top: 1vh;
     background-color: #000;
-    text-indent: -9999px;
+    text-indent: -999vh;
 }
 .wrap .picture_setting .picture_preview .preview_set li:nth-child(-n+2){
     margin-top: 0;
@@ -647,7 +647,7 @@
     height: 100%;
     color: transparent;
     font-size: 10vh;
-    /* text-indent: -9999px; */
+    /* text-indent: -999vh; */
     background-size: cover;
     background-position: center;
 }
@@ -683,7 +683,7 @@
     height: 100%;
     font-size: 2.3vh;
     background-color: var(--bg-shoot-type-front);
-    border: 3px solid rgba(0, 0, 0, 0.3);
+    border: 0.3vh solid rgba(0, 0, 0, 0.3);
     border-radius: calc(var(--box_rounding) * 2);
     box-sizing: border-box;
 }

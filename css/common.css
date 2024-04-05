@@ -70,10 +70,8 @@
     --color-point: #e44e73;
     --color-base: #606060;
     --color-base-light: #e1e1e1;
-    
     --color-logo-light: #fff;
     --color-logo-dark: #e44e73;
-    
     --frame-color-1: #fff;
     --frame-color-2: #adcbe1;
     --frame-color-3: #b3b3b3;
@@ -82,12 +80,9 @@
     --frame-color-6: #32395a;
     --frame-color-7: #ecc0c1;
     --frame-color-8: #6f6a48;
-
     --bg-shoot-type-front: #7f7f7f;
     --bg-shoot-type-back: #666;
-
-    --margin-base: 12px;
-
+    --margin-base: 1.2vh;
     --font-logo: "GyeonggiTitleM";
     --font-catchphrase: "GyeonggiTitleL";
     --size-btn: 7vh;
@@ -178,29 +173,29 @@ table {
 
 .wrap .logo{
     position: fixed;
-    left: 40px;
-    top: 20px;
+    left: 2vh;
+    top: 2vh;
 }
 .wrap .logo a{
     color: var(--color-logo-dark);
-    font-size: 60px;
+    font-size: 5vh;
 }
 .wrap.white .logo a{
     color: var(--color-logo-dark);
 }
 .wrap h2{
     /* color: #fff; */
-    margin: 68px 0;
+    margin: 0 0 3vh;
     font-weight: 600;
-    font-size: 68px;
+    font-size: 6.8vh;
 }
 .wrap.white h2{
     color: var(--color-base);
-    font-size: 66px;
+    font-size: 6.6vh;
 }
 
 .wrap h3{font-weight: 800; font-size: 40px;}
-.wrap h4{font-weight: 800; font-size: 30px;}
+.wrap h4{font-weight: 800;font-size: 3vh;}
 .wrap p{font-size: 24px;}
 
 .wrap .btn{
@@ -209,9 +204,9 @@ table {
     color: var(--color-base);
     line-height: var(--size-btn);
     font-weight: 800;
-    border: 2px solid var(--color-prime);
+    border: 0.3vh solid var(--color-prime);
     background-color: #fff;
-    border-radius: 18px;
+    border-radius: 1vh;
     box-sizing: border-box;
 }
 .wrap .btn_ic{
@@ -224,8 +219,8 @@ table {
     background-image: url(../images/icon.png);
     background-size: cover;
     background-position: 0 center;
-    border: 2px solid var(--color-prime);
-    border-radius: 18px;
+    border: 0.3vh solid var(--color-prime);
+    border-radius: 1vh;
     box-sizing: border-box;
 }
 .wrap .btn_ic.prev{
@@ -245,7 +240,8 @@ table {
     background-position-x: calc(33.33% * 2);
 }
 .wrap .intro + .btn{
-    position: absolute; bottom: 86px;
+    position: absolute;
+    bottom: 12vh;
     z-index: 2;
 }
 
@@ -258,9 +254,9 @@ table {
 .wrap .box_btn.vertical{flex-direction: column;}
 .wrap .box_btn.top_right{
     position: absolute;
-    top: 20px;
-    right: 40px;
+    top: 2vh;
+    right: 4vh;
 }
 .wrap .box_btn :is(a, p, input, button):not(:first-child){margin-left: var(--margin-base);}
-.wrap .box_btn.vertical :is(a, input, button):not(:first-child){margin: var(--margin-base) 0 0 0; padding: 22px 0; line-height: 1.2;}
+.wrap .box_btn.vertical :is(a, input, button):not(:first-child){margin: var(--margin-base) 0 0 0;padding: 2.2vh 0;line-height: 1.2;}
 /* common - end */
