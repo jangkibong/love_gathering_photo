@@ -679,7 +679,7 @@
 }
 .wrap .box_custom.frame_set .frame_chips li:nth-child(odd){margin-right: 2vh;}
 .wrap .box_custom.frame_set .frame_chips li button{
-    width: 100%;
+    width: 100%; 
     height: 100%;
     font-size: 2.3vh;
     background-color: var(--bg-shoot-type-front);
