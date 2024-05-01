@@ -85,8 +85,12 @@
             var node = document.getElementById('capture_printing');
             var options = {
                 style:{
-                    margin : '0'
-                }
+                    margin : '0',
+                    scale : 5, // 캡쳐영역 내부의 요소 크기를 5배 확대 - 캡쳐되는 이미지의 dpi(기본화면 72 dpi)를 300 이상으로 올리기 위함
+                    transformOrigin : "top left" // 확대되는 기준점 지정
+                },
+                width: node.offsetWidth * 5, // 가로 길이 5배 (확대 된 내부 요소가 담기는 캡쳐영역의 넓이를 키움)
+                height: node.offsetHeight * 5 // 세로 길이 5배 (확대 된 내부 요소가 담기는 캡쳐영역의 높이를 키움)
             }
 
             domtoimage.toPng(node, options)
