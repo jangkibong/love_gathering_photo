@@ -86,7 +86,6 @@ $(function(){
     
     /* 촬영 시작 버튼 클릭 */
     btn_shutter.on('click', function(){
-        
         if(!shutter_status){
             shutter_status = true;
             
@@ -100,6 +99,27 @@ $(function(){
                 timer --;
                 shutter_timer.text(timer)
                 
+                // 카메라 화면 깜빡임 효과
+                if(timer == 0){
+                    setTimeout(function(){
+                        shutter_timer.css({ // 카메라 화면 밝힘
+                            'background-color' : '#fff',
+                            'opacity' : '0.8',
+                            'mix-blend-mode' : 'normal',
+                            'text-shadow' : '0vh 0vh 3.0vh #fff'
+                        });
+                    }, 600);
+
+                    setTimeout(function(){ // 카메라 화면 밝힘 해제
+                        shutter_timer.css({
+                            'background-color' : 'transparent',
+                            'opacity' : '0.6',
+                            'mix-blend-mode' : 'soft-light',
+                            'text-shadow' : '0vh 0vh 3.0vh #000'
+                        });
+                    }, 1000);
+                }
+
                 if(timer < 0){
                     shutter_timer.text(reset_timer); // 화면에 보이는 촬영 타이머 리셋
                     timer = shutter_timer.text();  //timer 변수를 리셋한 값으로 재할당

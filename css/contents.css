@@ -319,6 +319,7 @@
     text-shadow: 0vh 0vh 3.0vh #000;
     opacity: 0.6;
     mix-blend-mode: soft-light;
+    transition: all 0.2s;
 }
 .wrap .shootihg_box .camera .box_btn{
     position: absolute;
