@@ -19,6 +19,7 @@ $(function(){
     // 선택한 카메라 유지
     currentDeviceIndex = localStorage.getItem("current camera");
 
+    /* 카메라 연결 */
     function getCameraStream(){
         navigator.mediaDevices.enumerateDevices()// 현재 연결된 미디어 입/출력 장치 목록 반환
         .then(function(device){
@@ -59,6 +60,33 @@ $(function(){
         }
     }
 
+    // shutter - 촬영 이미지 저장
+    function saveImage (){
+        // Canvas에 비디오 화면 그리기
+        if(camera_flip_mode == true){
+            const canvasContext = canvas.getContext('2d');
+            canvas.width = video.videoWidth * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+            canvas.height = video.videoHeight * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+            canvasContext.scale(-1, 1); // 이미지를 수평으로 반전시킵니다
+            canvasContext.drawImage(video, 0, 0, -canvas.width, canvas.height);
+        } else{
+            canvas.width = video.videoWidth * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+            canvas.height = video.videoHeight * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Canvas의 이미지를 Data URL로 변환하여 저장
+        const imgData = canvas.toDataURL('image/jpeg', 0.9); // 0.9는 JPEG 압축 품질을 나타내며 0에서 1 사이의 값입니다.
+        
+        // 이미지를 로컬 스토리지에 저장 
+        localStorage.setItem("photo_" + photoCount, imgData);
+        
+        // 이미지를 사진 미리보기에 background-image로 지정
+        let photoPreview = box_preview_item[photoCount];
+        // console.log(photoPreview);
+        photoPreview.style.backgroundImage = 'url(' + localStorage.getItem('photo_' + photoCount);
+    }
+    
     getCameraStream();
     flipCamera();
 
@@ -94,13 +122,13 @@ $(function(){
             console.log("남은 셔터 수", shutter_chance);
             let reset_timer = timer;
             
-            /* 촬영 타이머 카운트다운 */
+            /* 촬영 */
             interval_count = setInterval(function(){
                 timer --;
                 shutter_timer.text(timer)
                 
                 // 카메라 화면 깜빡임 효과
-                if(timer == 0){
+                if(timer == 1){
                     setTimeout(function(){
                         shutter_timer.css({ // 카메라 화면 밝힘
                             'background-color' : '#fff',
@@ -108,7 +136,9 @@ $(function(){
                             'mix-blend-mode' : 'normal',
                             'text-shadow' : '0vh 0vh 3.0vh #fff'
                         });
-                    }, 600);
+                        saveImage();
+
+                    }, 800);
 
                     setTimeout(function(){ // 카메라 화면 밝힘 해제
                         shutter_timer.css({
@@ -117,39 +147,16 @@ $(function(){
                             'mix-blend-mode' : 'soft-light',
                             'text-shadow' : '0vh 0vh 3.0vh #000'
                         });
-                    }, 1000);
+                    }, 1400);
                 }
 
+                // 촬영 타이머 카운트다운
                 if(timer < 0){
                     shutter_timer.text(reset_timer); // 화면에 보이는 촬영 타이머 리셋
                     timer = shutter_timer.text();  //timer 변수를 리셋한 값으로 재할당
                     shutter_status = false;
                     shutter_chance --; // 셔터 기회 차감
                     console.log("남은 셔터 수", shutter_chance); //남은 셔터 기회 콘솔창에 보여주기
-                    
-                    // Canvas에 비디오 화면 그리기
-                    if(camera_flip_mode == true){
-                        const canvasContext = canvas.getContext('2d');
-                        canvas.width = video.videoWidth * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
-                        canvas.height = video.videoHeight * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
-                        canvasContext.scale(-1, 1); // 이미지를 수평으로 반전시킵니다
-                        canvasContext.drawImage(video, 0, 0, -canvas.width, canvas.height);
-                    } else{
-                        canvas.width = video.videoWidth * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
-                        canvas.height = video.videoHeight * 0.8; // 8장 이상 촬영 시 localstorage 용량초과로 인해 사이즈 줄임
-                        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-                    }
-
-                    // Canvas의 이미지를 Data URL로 변환하여 저장
-                    const imgData = canvas.toDataURL('image/jpeg', 0.9); // 1은 JPEG 압축 품질을 나타내며 0에서 1 사이의 값입니다.
-                    
-                    // 이미지를 로컬 스토리지에 저장 
-                    localStorage.setItem("photo_" + photoCount, imgData);
-                    
-                    // 이미지를 사진 미리보기에 background-image로 지정
-                    let photoPreview = box_preview_item[photoCount];
-                    // console.log(photoPreview);
-                    photoPreview.style.backgroundImage = 'url(' + localStorage.getItem('photo_' + photoCount);
                     
                     photoCount ++;
 
